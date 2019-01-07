@@ -3,7 +3,6 @@
 *.brd#*
 *.b#*
 *.s#*
-*.vscode/*
 ideas/*
 MemoryClock/*
 orangeClock/*
@@ -14,5 +13,4 @@ Hourglass/VW Backup/Hourglass002-Backup-20180530132820.vwx
 Hourglass/VW Backup/Hourglass003-Backup-20180605121351.vwx
 Hourglass/VW Backup/Hourglass005-Backup-20181024120408.vwx
 Hourglass/VW Backup/Hourglass006-Backup-20181026111031.vwx
-MovingLightClock/MovingLightClock001/.vscode/c_cpp_properties.json
 MovingLightClock/timelapse-01-06-2019.mp4
