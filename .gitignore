@@ -3,6 +3,7 @@
 *.brd#*
 *.b#*
 *.s#*
+*arduino_secrets.h
 ideas/*
 MemoryClock/*
 orangeClock/*
