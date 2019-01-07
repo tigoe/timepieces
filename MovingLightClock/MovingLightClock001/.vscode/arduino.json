@@ -1,0 +1,4 @@
+{
+    "board": "arduino:samd:mkrwifi1010",
+    "sketch": "MovingLightClock001.ino"
+}
