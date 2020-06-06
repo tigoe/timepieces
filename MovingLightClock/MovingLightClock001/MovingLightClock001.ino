@@ -2,26 +2,27 @@
   Moving Light Clock
 
   Moves an Elation Platinum Spot LED Pro II through its tilt
-  starting at sunrise and ending at sunset. To do this, the 
+  starting at sunrise and ending at sunset. To do this, the
   sketch gets the time using the WiFi101 library's getTime() command,
   then gets the sunrise and sunset from the sunrise-sunset.org api.
   With that info, it calculates the day length and sends DMX commands
   to the spotlight to move it proportionally through the day
 
   Circuit:
-  * Arduino MKR1000
-  * RS485 Shield for MKR series
-  * ELation Elation Platinum Spot LED Pro II moving DMX spotlight
+    Arduino MKR1000
+    RS485 Shield for MKR series
+    ELation Elation Platinum Spot LED Pro II moving DMX spotlight
 
   created 20 Oct 2018
   modified 6 Jan 2019
   by Tom Igoe
- */
+*/
 
 #include <ArduinoRS485.h>
 #include <ArduinoDMX.h>
 #include <SPI.h>
 #include <WiFi101.h>
+//#include <WiFiNINA.h>
 #include <WiFiUdp.h>
 #include <RTCZero.h>
 #include <Scheduler.h>
@@ -37,7 +38,7 @@ long dayLength;           // length of today
 int sunrise[] = {0, 0, 0};// sunrise h, m, s
 int sunset[] = {0, 0, 0}; // sunset h, m, s
 int noon[] = {0, 0, 0};   // midday h, m, s
-const int timeZone = -5;  // your time zone relative to UTC
+int timeZone = -5;  // your time zone relative to UTC
 
 // your latitude and longitude:
 const float latitude = 40.73;
@@ -97,6 +98,17 @@ void setup() {
   Serial.print("Epoch received: ");
   Serial.println(epoch);
   rtc.setEpoch(epoch);
+
+  // get the day of the week:
+  // Jan 1 1970 (epoch) was a Thursday, so add 4:
+  int dayOfWeek = ((epoch / 86400) + 4) % 7;
+
+  // if daylight savings, spring forward:
+  if (daylightSavings(dayOfWeek)) {
+    timeZone = timeZone + 1;
+  }
+
+  Serial.println(timeZone);
   rtc.setHours(rtc.getHours() + timeZone);
 
   // print the time:
@@ -273,4 +285,25 @@ void getDayLength() {
   }
   // when there's nothing left to the response,
   http.stop(); // close the request
+}
+
+
+
+bool daylightSavings(int dow) {
+  //January, february, and december are out.
+  if (rtc.getMonth() < 3 || rtc.getMonth() > 11) {
+    return false;
+  }
+  //April to October are in
+  if (rtc.getMonth() > 3 && rtc.getMonth() < 11) {
+    return true;
+  }
+  int previousSunday = rtc.getDay() - dow;
+  //In march, we are DST if our previous sunday was on or after the 8th.
+  if (rtc.getMonth() == 3) {
+    return previousSunday >= 8;
+  }
+  //In november we must be before the first sunday to be dst.
+  //That means the previous sunday must be before the 1st.
+  return previousSunday <= 0;
 }
