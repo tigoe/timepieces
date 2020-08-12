@@ -1,0 +1,45 @@
+; Siteplayer configuration file
+
+; created 11/02 
+; by Tom Igoe
+
+; The Siteplayer's configuration for the email clock is very
+; simple, because all it's really doing is passing data 
+; through the serial port. I added the pointers to the IP 
+; address registers so that I could display the unit's IP 
+; address in the index.html file.
+
+;$devicename sets the name or description of the device
+ $devicename "Email clock"
+ 
+;$DHCP on tells SitePlayer to find its IP address from a DHCP server
+ $DHCP off
+ 
+;$DownloadPassword sets password for downloading web pages
+ $DownloadPassword "password"
+ 
+;$SitePassword sets password for browsing web pages
+ $SitePassword "otherpass"
+ 
+;$InitialIP sets SitePlayer's IP address to use
+ $InitialIP "xxx.xxx.xxx.xxx" 
+ 
+ ;$Sitefile sets the binary image filename that will be created
+ $sitefile "C:\path\to\clock.spb"
+
+;$Sitepath sets the root path of the web pages for this project
+ $sitepath "C:\path\to\site_root"
+
+;$Include sets the name of a file to include during make process
+ $Include "C:\Program Files\SitePlayer\pcadef.inc"
+ 
+
+org 0FF1Ah
+baudrate dw 65015		; set baud rate to 9600
+
+org FFE6h ; the IP address of this siteplayer
+
+myip1 ds 1
+myip2 ds 1
+myip3 ds 1
+myip4 ds 1
