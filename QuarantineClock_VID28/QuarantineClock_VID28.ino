@@ -1,14 +1,15 @@
 
 /*
-  VID28-05 Motor Control
+  Quarantine Clock
 
   Controls two stepper motors at once, used to test a VID28-05
   concentric shaft motor. Treats the inner hand as a minute hand,
   and the outer as a second hand.
 
-  The hands move in an almost continous sweep in this example.
+  Time stays on the same second in this sketch.
 
   Created 20 Jan 2020
+  modified 15 April 2020
   by Tom Igoe
 
 */

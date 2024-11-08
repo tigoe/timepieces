@@ -1,0 +1,28 @@
+Part, Value, Part No., Comments
+C1, 10uF, Digikey P828-ND, Any polarized 10uF capacitor will do.
+C2, 1.0uF, Digikey 478-1836-ND, Any polarized 1.0uF capacitor will do.
+C3, 1.0uF, Digikey 478-1836-ND, Any polarized 1.0uF capacitor will do.
+D6, 1N5817, Newark 48F6702
+Digikey 1N5817DICT-ND, This keeps the 3.3V regulator from overheating. DO-41 package
+IC1, MIC2915033-BU, Newark 83F5900, Make sure to use the the BU model  which is a surface-mount (TO-263) package. The two different packages help differentiate the 5V regulator from the 3.3V regulator.
+ICSP, Pin Headers, Digikey 929974-01-08-ND, These are female headers  straight. I use male headers to hold them to the Arduino's female headers  with the male headers sandwiched in between the two boards.
+J1, Pin Headers, Digikey 929974-01-08-ND, These are female headers  straight. I use male headers to hold them to the Arduino's female headers  with the male headers sandwiched in between the two boards.
+J2, Pin Headers, Digikey 929974-01-0-ND, These are female headers  straight. I use male headers to hold them to the Arduino's female headers  with the male headers sandwiched in between the two boards.
+J3, Pin Headers, Digikey 929974-01-08-ND, These are female headers  straight. I use male headers to hold them to the Arduino's female headers  with the male headers sandwiched in between the two boards.
+LED1, LED, Digikey 160-1144-ND, Green LED
+LED2, LED, Digikey 160-1144-ND, Green LED
+LED3, LED, Digikey 160-1144-ND, Green LED
+LED4, LED, Digikey 160-1144-ND, Green LED
+LED5, LED, Digikey 160-1144-ND, Green LED
+LED6, LED, Digikey 160-1144-ND, Green LED
+R1, 10K, Newark 84N2322
+Digikey 10KQBK-ND, Goes with the reset switch. 0207/10 package
+R2, 220 Ohm, Digikey 220QBK-ND, Goes with LED. 0207/10 package
+R3, 220 Ohm, Digikey 220QBK-ND, Goes with LED. 0207/10 package
+R4, 220 Ohm, Digikey 220QBK-ND, Goes with LED. 0207/10 package
+R5, 220 Ohm, Digikey 220QBK-ND, Goes with LED. 0207/10 package
+R6, 220 Ohm, Digikey 220QBK-ND, Goes with LED. 0207/10 package
+R7, 1.0K, Digikey 1.0KQBK-ND, Goes with reset switch. 0207/10 package.
+R8, 220 Ohm, Digikey 220QBK-ND, Goes with LED. 0207/10 package
+S1, Reset switch, Digikey SW400-ND, Reset switch
+CON1, X-PORT, Symmetry XP1002000-03, I get mine from Symmetry  but you can also get them from GridConnect (thanks to Jeff Gray for the link)
